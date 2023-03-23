@@ -348,3 +348,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Linja-API/appsettings.Development.json
+Linja-API/appsettings.json
