@@ -8,10 +8,6 @@
 
         public string? RegNumber { get; set; }
 
-        public DateTime LastServiceDate { get; set; }
-
-        public DateTime UpdatedServiceDate { get; set; }
-
         public bool Removed { get; set; }
     }
 }

@@ -17,8 +17,11 @@ namespace Linja_API.Controllers
         [HttpGet("GetBusses")]
         public async Task<ActionResult> GetBusses()
         {
+           
+
             var busses = await database.Bus.Where(
-                b => b.Removed != true).ToListAsync();
+                b => b.Removed != true).OrderBy(b => b.Maker).ThenBy(
+                b => b.RegNumber).ToListAsync();
             return Ok(busses);
         }
 
@@ -36,6 +39,17 @@ namespace Linja_API.Controllers
         public async Task<ActionResult> AddBus(Bus bus)
         {
             database.Add(bus);
+            await database.SaveChangesAsync();
+
+            return Ok();
+        }
+
+
+
+        [HttpPost("AddMaintenancce")]
+        public async Task<ActionResult> AddBus(Maintenance maintenance)
+        {
+            database.Add(maintenance);
             await database.SaveChangesAsync();
 
             return Ok();
