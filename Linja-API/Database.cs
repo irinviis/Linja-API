@@ -12,6 +12,7 @@ namespace Linja_API
         }
 
         public DbSet<Bus> Bus { get; set; }
+        public DbSet<Maintenance> Maintenance { get; set; }
 
     }
 }
