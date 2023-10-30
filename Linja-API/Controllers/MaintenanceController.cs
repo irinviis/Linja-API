@@ -14,8 +14,8 @@ namespace Linja_API.Controllers
         }
 
 
-        [HttpGet("GetMaintenances")]
-        public async Task<ActionResult> GetMaintenances(MaintenanceFilter filter)
+        [HttpGet("GetMaintenancesByRegNumber")]
+        public async Task<ActionResult> GetMaintenancesByRegNumber(MaintenanceFilter filter)
         {
             var maintenances = new List<Maintenance>();
 
@@ -28,6 +28,17 @@ namespace Linja_API.Controllers
                 }
             }
             return Ok(maintenances); 
+        }
+
+
+        [HttpGet("GetMaintenances")]
+        public async Task<ActionResult> GetMaintenances()
+        {
+            var maintenances = await database.Maintenance.Where(
+                m => m.Removed != true).ToListAsync();
+
+            
+            return Ok(maintenances);
         }
 
 

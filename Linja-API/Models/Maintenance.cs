@@ -13,6 +13,7 @@ namespace Linja_API.Models
         public int BusId { get; set; }
         public MaintenanceTypeEnum MaintenanceType { get; set; }
 
+
         [NotMapped]
         public bool NextServiceIsSoon => DateTime.Now.AddDays(5) >= NextMaintenanceTimestamp;
     }
